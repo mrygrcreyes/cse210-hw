@@ -12,7 +12,7 @@ class Program
 
        int guessNumber = -1; 
        int guessCount = 0;
-       string play = "yes";
+       //string play = "yes";
 
        while (guessNumber != magicNumber)
        {
