@@ -14,7 +14,7 @@ class Program
        int guessCount = 0;
        //string play = "yes";
 
-       while (guessNumber != magicNumber)
+       while (guessNumber != magicNumber) 
        {
          Console.Write("What is your guess? ");
          guessNumber = int.Parse(Console.ReadLine());
@@ -37,13 +37,11 @@ class Program
             {
                Console.Write("Would you like to play again (yes/no)?");
                play = Console.ReadLine();
-            } 
+            }
             else 
-            {
-               //Console.WriteLine("Thank you for playing. Goodbye!");
-               }
-            */
-                
+               {
+                  Console.Write("Thank you!");
+               } */   
             
          } 
 
