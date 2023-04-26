@@ -21,7 +21,7 @@ class Program
         myResume._jobs.Add(job1);
         myResume._jobs.Add(job2);
         myResume.Display();
-        // This method can be used but for shortcut you can display jobs in job.cs using (foreach)
+        // This method can be used but for shortcut you can display jobs in Resume.cs using (foreach)
         // job1.Display();
         // job2.Display();
     }
