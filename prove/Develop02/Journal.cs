@@ -12,7 +12,7 @@ public class Journal
     }
    }
 
-    public string GetResponse(string prompt)
+    private string GetResponse(string prompt)
     {
         Console.WriteLine(prompt);
         Console.Write("> ");
@@ -20,24 +20,36 @@ public class Journal
         return response;
 
     }
-    public string SaveFileName(string type)
+
+    private string File(string type)
     {   
         if (type == "save")
         {
-            Console.Write("Name your file: ");
+            Console.Write("File Name: ");
         }
         else
         {
-            Console.Write("Load what file?: ");
+            Console.Write("What is the File Name?: ");
         }
         
         string fileName = Console.ReadLine();
         return fileName;
     }
+   public void CreateEntry()
+   {
+    DateTime theCurrentTime = DateTime.Now;
+    string dateText = theCurrentTime.ToShortDateString();
+    Prompts promptGen = new Prompts();
+    string prompt = promptGen.ChooseRandomPrompt();
+    string response = GetResponse(prompt);
+
+    Entry entry = new Entry(dateText, prompt, response);
+    _entries.Add(entry);
+   }
 
    public void SaveJournal()
    {
-    string fileName = SaveFileName("save");
+    string fileName = File("save");
 
     using ( StreamWriter saveFile = new StreamWriter(fileName))
     {
@@ -52,7 +64,7 @@ public class Journal
    public void LoadJournal()
    {
     _entries.Clear();
-    string fileName = SaveFileName("load");
+    string fileName = File("load");
     string[] lines = System.IO.File.ReadAllLines(fileName);
     foreach (string line in lines)
     {
@@ -63,16 +75,5 @@ public class Journal
         Entry entry = new Entry(date, prompt, response);
         _entries.Add(entry);
     }
-   }
-    public void CreateEntry()
-   {
-    DateTime theCurrentTime = DateTime.Now;
-    string dateText = theCurrentTime.ToShortDateString();
-    Prompts promptGen = new Prompts();
-    string prompt = promptGen.ChooseRandomPrompt();
-    string response = GetResponse(prompt);
-
-    Entry entry = new Entry(dateText, prompt, response);
-    _entries.Add(entry);
    }
 }
