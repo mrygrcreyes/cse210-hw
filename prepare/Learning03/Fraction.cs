@@ -35,11 +35,4 @@ public class Fraction
         double decimalValue = (double)_topNum / (double)_bottomNum;
         return decimalValue; */
     }
-
-    
-
-   
-
-
-
 }
