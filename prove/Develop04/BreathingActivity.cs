@@ -8,7 +8,7 @@ public class BreathingActivity : Activity
     public void DoBreath()
     {
         DateTime startTime = DateTime.Now;
-        DateTime futureTime = startTime.AddSeconds(_chosenTime);
+        DateTime futureTime = startTime.AddSeconds(_time);
         do
         {
             Console.Write("Breathe in...");

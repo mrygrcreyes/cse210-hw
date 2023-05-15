@@ -1,23 +1,23 @@
 public class Activity
 {
-    protected int _chosenTime = 1;
-    private string _chosenActivity;
-    private string _introduction;
+    protected int _time = 1;
+    private string _title;
+    private string _description;
     public Activity (string chosenActivity)
     {
 
-        _chosenActivity = chosenActivity;
-        if(_chosenActivity == "Breathing")
+        _title = chosenActivity;
+        if(_title == "Breathing")
         {
-            _introduction = "This activity will help you focus and relax by breathing in and out slowly.\nClear your mind and prepare to begin.";
+            _description = "This activity will help you find more peace and less stress through breathing in and out slowly.\nFocus and prepare to begin.";
         }
-        else if(_chosenActivity == "Reflection")
+        else if(_title == "Reflection")
         {
-            _introduction = "This activity will help you refelct deeply on your past experiences.\nClear your mind and prepare to begin.";
+            _description = "This activity will help you refelct deeply on your past experiences.\nFocus and prepare to begin.";
         }
         else
         {
-            _introduction = "This activity will help you reflect on the good things in your life by helping you list thing in a certain topic.\nClear your mind and prepare to begin.";
+            _description = "This activity will help you reflect on your strengths by helping you list thing in a certain topic.\nFocus and prepare to begin.";
         }
     }
 
@@ -51,8 +51,8 @@ public class Activity
     public void DisplayIntro()
     {
         Console.Clear();
-        Console.Write($"Welcome to the {_chosenActivity} Activity.\n\n{_introduction}\n\nApproximately how long would you like this session to last in seconds?\n> ");
-        _chosenTime = int.Parse(Console.ReadLine());
+        Console.Write($"Welcome to the {_title} Activity.\n\n{_description}\n\nHow long would you like this session to last in seconds?\n> ");
+        _time = int.Parse(Console.ReadLine());
         Console.Clear();
         Console.WriteLine("Get Ready...");
         DisplaySpinner(3);
@@ -63,10 +63,10 @@ public class Activity
 
     public void DisplayOutro()
     {
-       Console.WriteLine("Well done!!");
+       Console.WriteLine("Great Job! Well done!!");
        DisplaySpinner(3);
        Console.WriteLine("");
-       Console.WriteLine($"You have compleated {_chosenTime} seconds of the {_chosenActivity} Activity.");
+       Console.WriteLine($"You have compleated {_time} seconds of the {_title} Activity.");
        DisplaySpinner(3); 
     }
 
