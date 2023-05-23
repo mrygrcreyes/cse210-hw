@@ -1,9 +1,21 @@
+using System;
+
 public class EternalGoal : Goal
 {
     int _timesCompleted;
+
     public EternalGoal(string name, int points, string type, bool complete) : base(complete, name, points, type)
     {
         _timesCompleted = 0; 
+    }
+    public EternalGoal(string loadString) 
+    {
+        string[] parts = loadString.Split("|");
+        SetName(parts[0]);
+        SetType(parts[1]);
+        SetPoints(int.Parse(parts[2]));
+        SetComp(false);
+        _timesCompleted = int.Parse(parts[3]);
     }
 
     public override void DisplayGoal()
@@ -24,6 +36,11 @@ public class EternalGoal : Goal
         }
        
     }
-
+    public override string GetLine()
+{
+    string line = $"{_isComplete}, {_goalName}, {_pointValue}, {_goalType}";
+    return line;
+}
+    
 
 }
